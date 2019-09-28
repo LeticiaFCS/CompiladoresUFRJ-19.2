@@ -16,13 +16,14 @@ void T_linha();
 void F();
 void casa( int );
 
-enum { tk_int = 256, tk_char, tk_double, tk_id, tk_cte_int };
+enum { tk_int = 256, tk_char, tk_double, tk_id, tk_cte_num, tk_string };
 map<int,string> nome_tokens = {
   { tk_int, "int" },
   { tk_char, "char" },
   { tk_double, "double" },
   { tk_id, "nome de identificador" },
-  { tk_cte_int, "constante inteira" }
+  { tk_cte_num, "constante inteira" },
+  { tk_string, "string" }
 };
 %}
 
@@ -30,16 +31,20 @@ WS	[ \n\t]
 DIGITO	[0-9]
 LETRA	[A-Za-z_]
 
-NUM	{DIGITO}+
+
+INT	{DIGITO}+
+NUM {INT}("."{INT})?([Ee]("+"|"-")?{INT})?
+STRING ([\"]([^\"\n]*(\"\")*(\\\")*)*[\"])
 ID	{LETRA}({LETRA}|{DIGITO})*
 
 %%
 
 {WS}  		{ }
-{NUM} 		{ return tk_cte_int; }
+{NUM} 		{ return tk_cte_num; }
 "char"		{ return tk_char; }
 "int"		{ return tk_int; }
 "double"	{ return tk_double; }
+{STRING}	{ return tk_string; }
 
 {ID}		{ return tk_id; }
 
@@ -66,7 +71,7 @@ string nome_token( int token ) {
 
 
 void print( string msg ) {
-  cout << msg << endl;
+  cout << msg << " ";
 }
 
 void erro(string msg){
@@ -112,11 +117,15 @@ void F() {
   switch( token ) {
     case tk_id : {
       string temp = yytext;
-      casa( tk_id ); print( temp + "@" ); } 
+      casa( tk_id ); print( temp + " @" ); } 
       break;
-    case tk_cte_int : {
+    case tk_cte_num : {
       string temp = yytext;
-      casa( tk_cte_int ); print( temp ); }
+      casa( tk_cte_num ); print( temp ); }
+      break;
+    case tk_string :{
+      string temp = yytext;
+      casa( tk_string ); print( temp ); }
       break;
     case '(': 
       casa( '(' ); E(); casa (')'); break;
@@ -136,8 +145,13 @@ void casa( int esperado ) {
 
 int main() {
   token = next_token();
-  A();
-  printf( "Sintaxe ok!\n" );
+  while(token){
+  	A();
+  	if(token == ';')
+  		cout<<endl;
+  	token = next_token();
+  }
+  //printf( "Sintaxe ok!\n" );
   
   return 0;
 }

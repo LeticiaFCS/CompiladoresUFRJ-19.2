@@ -1,0 +1,11 @@
+A -> id { Print( id ); } = E { Print( "="); }
+E -> E + T { Print( "+"); }
+   | E - T { Print( "-"); }
+   | T
+T -> T * F { Print( "*"); }
+   | T / F { Print( "/"); }
+   | F
+F -> id { Print(id + "@"); }
+   | num { Print( num ); }
+   | string{ Print(string); }
+   | ( E )
