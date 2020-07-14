@@ -1,0 +1,4 @@
+./mini_js < entrada.txt
+&a a 
+a [] = 
+

@@ -1,3 +1,8 @@
+C -> A ; | B ; | epson;
+B -> print F | D ;
+D -> 
+
+
 A -> id { Print( id ); } = E { Print( "="); }
 E -> E + T { Print( "+"); }
    | E - T { Print( "-"); }
@@ -9,3 +14,37 @@ F -> id { Print(id + "@"); }
    | num { Print( num ); }
    | string{ Print(string); }
    | ( E )
+   
+   
+   
+   
+   ---------------------------------
+   
+   
+C -> A ; | B ; | epson;
+B -> print F | D ;
+D -> id ( E D_linha )
+D_linha -> E , | epson
+
+
+A -> id { Print( id ); } = E { Print( "="); }
+E -> E + T { Print( "+"); }
+   | E - T { Print( "-"); }
+   | T
+T -> T * F { Print( "*"); }
+   | T / F { Print( "/"); }
+   | F
+F -> id { Print(id + "@"); }
+   | num { Print( num ); }
+   | string{ Print(string); }
+   | ( E )
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   

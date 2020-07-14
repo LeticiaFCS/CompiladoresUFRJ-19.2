@@ -1,0 +1,7 @@
+- Manda um lex mdp.c
+- Dá rename em lex.yy.c pra lex.yy.mdp.c (não consegui fazer o lex com o makefile dele)
+- Manda make all na máquina de pilha
+- Cria os arquivos de mini_js.l e mini_js.y em algum lugar. 
+- Dá um make neles quando tiver algo pronto
+- A entrada do mini_js.o é o código em javascript, e a saída, a linguagem intermediária.
+- A saída do mini_js.o é a entrada da máquina de pilha em mdp.o.

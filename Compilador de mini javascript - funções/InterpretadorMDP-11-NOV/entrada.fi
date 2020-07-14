@@ -1,0 +1,8 @@
+a & a arguments @ 0 [@] = ^
+b & b arguments @ 1 [@] = ^
+b @ 0 == 68 ? 
+b @ a @ b @ % 2 mdc @ $  
+'&retorno' @ ~ 
+73 #   
+a @ '&retorno' @ ~   
+undefined @ '&retorno' @ ~ 

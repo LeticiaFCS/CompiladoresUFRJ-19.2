@@ -1,0 +1,8 @@
+yacc mini_js.y
+g++ y.tab.c -o mini_js -ll	
+./mini_js < entrada.txt
+&a a {} = 
+&b b [] = 
+&c 
+Erro: syntax error
+Perto de : 'd'

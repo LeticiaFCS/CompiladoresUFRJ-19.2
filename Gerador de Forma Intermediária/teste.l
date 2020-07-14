@@ -16,7 +16,9 @@ void T_linha();
 void F();
 void casa( int );
 
-enum { tk_int = 256, tk_char, tk_double, tk_id, tk_cte_int };
+extern "C" int yylex(); 
+
+enum { tk_int = 256, tk_char, tk_double, tk_id, tk_cte_int, tk_print };
 map<int,string> nome_tokens = {
   { tk_int, "int" },
   { tk_char, "char" },
@@ -67,12 +69,13 @@ string nome_token( int token ) {
   }
 }
 
+/*
 typedef void (*Funcao)();
 
 map<string,Funcao> funcao = {
   { "print", &print },
   { "max", &Max2 }
-};
+};*/
 
 void print( string msg ) {
   cout << msg << endl;

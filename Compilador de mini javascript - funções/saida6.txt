@@ -1,0 +1,25 @@
+console  & console {} = ^ 
+Number  & Number {} = ^
+log & log {} = '&funcao' 75 [=] ^ 
+
+number_to_string & number_to_string {} = '&funcao' 95 [=] ^
+
+console @ log log @ [=] ^ 
+Number @ toString number_to_string @ [=] ^ 
+a  & a "Saida: " = ^
+b  & b 3.14 = ^ 
+
+a @ b @ 1 Number @ toString [@] $ + 1 
+
+console @ log [@] $ ^ 
+.
+
+msg & msg arguments @ 0 [@] = ^ 
+msg @ println # undefined ^ 
+undefined @ '&retorno' @ ~ 
+
+msg & msg arguments @ 0 [@] = ^ 
+msg @ to_string # '&retorno' @ ~ ^ 
+undefined @ '&retorno' @ ~ 
+
+.

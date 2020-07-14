@@ -1,0 +1,20 @@
+./mini_js < entrada.txt 
+console & console {} = ^ 
+Number & Number {} = ^ 
+log & log {} = '&funcao' 82 [=] ^ 
+
+number_to_string & number_to_string {} = '&funcao' 102 [=] ^ 
+
+console @ log log @ = ^ 
+log @ [@] Number @ toString number_to_string @ = ^ 
+toString @ [@] a & a "Saida: " = ^ 
+b & b 3.14 = ^ 
+console @ a @ Number @ + b @ 1 toString @ $ [@] 1 log @ $ [@] . 
+
+msg & msg arguments @ 0 [@] = ^ 
+msg @ println # undefined ^ 
+undefined @ '&retorno' @ ~ 
+
+msg & msg arguments @ 0 [@] = ^ 
+msg @ to_string # '&retorno' @ ~ ^ 
+undefined @ '&retorno' @ ~ 
